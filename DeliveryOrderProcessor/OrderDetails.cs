@@ -1,7 +1,10 @@
-﻿namespace DeliveryOrderProcessor
+﻿using Newtonsoft.Json;
+
+namespace DeliveryOrderProcessor
 {
 	public class OrderDetails
 	{
+		[JsonProperty(PropertyName = "id")]
 		public string Id { get; set; }
 		public ShippingAddress ShippingAddress { get; set; }
 		public decimal FinalPrice { get; set; }
