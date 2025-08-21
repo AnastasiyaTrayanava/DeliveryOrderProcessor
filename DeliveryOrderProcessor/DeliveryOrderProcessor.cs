@@ -45,7 +45,7 @@ public class DeliveryOrderProcessor
 
         var dbResponse = await _container.CreateItemAsync<OrderDetails>(orderDetailsObj, PartitionKey.None);
 
-        if (dbResponse.StatusCode == HttpStatusCode.Accepted)
+        if (dbResponse.StatusCode == HttpStatusCode.OK)
         {
 			return new OkObjectResult("It is done!");
         }
