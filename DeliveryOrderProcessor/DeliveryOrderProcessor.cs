@@ -18,12 +18,9 @@ public class DeliveryOrderProcessor
     {
         _logger = logger;
 
-        CosmosClient client = new(
-	        accountEndpoint: Environment.GetEnvironmentVariable("ConnectionString"),
-	        tokenCredential: new DefaultAzureCredential()
-        );
+		var client = new CosmosClient(Environment.GetEnvironmentVariable("AccountEndpoint"), Environment.GetEnvironmentVariable("AccountKey"));
 
-        var database = client.GetDatabase("things");
+		var database = client.GetDatabase("things");
         var container = database.GetContainer("deliveryorders");
 
 		_container = container;
